@@ -12,4 +12,5 @@ cryptography==43.0.3
 markdown==3.6
 taipy-gui==4.0.0
 sqlalchemy[asyncio]==2.0.30
-typer==0.3.2 click==7.0
+typer==0.3.2
+click==7.0
