@@ -1,0 +1,15 @@
+loguru==0.7.2
+fastapi==0.115.0
+uvicorn==0.30.6
+python-dotenv==1.0.1
+asyncpg==0.29.0
+alembic==1.13.2
+pydantic==2.8.2
+argon2-cffi==23.1.0
+pipecat-ai[openai]==0.0.47
+jinja2==3.1.4
+cryptography==43.0.3
+markdown==3.6
+taipy-gui==4.0.0
+sqlalchemy[asyncio]==2.0.30
+typer==0.3.2 click==7.0

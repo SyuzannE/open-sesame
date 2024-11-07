@@ -24,12 +24,14 @@ from rich.table import Table
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine
 
+import uvicorn
+
 console = Console()
 app = typer.Typer(
     help="Sesame CLI - Development and management tools for the Sesame application.",
     no_args_is_help=True,
     add_completion=False,
-)
+) 
 
 env_example = Path("env.example")
 env_file = Path(".env")
@@ -898,5 +900,7 @@ def main():
     app()
 
 
+
 if __name__ == "__main__":
-    app()
+    uvicorn.run("webapp.main:app", host="127.0.0.1", port=7860, reload=True)
+    

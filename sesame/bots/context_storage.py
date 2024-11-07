@@ -4,7 +4,7 @@ from copy import deepcopy
 from typing import Any, List, Literal
 
 from common.models import Message
-from deepcompare import compare
+from deepdiff import DeepDiff as compare
 from loguru import logger
 from pipecat.frames.frames import EndFrame, Frame, TransportMessageUrgentFrame
 from pipecat.processors.frame_processor import FrameDirection, FrameProcessor
@@ -93,7 +93,7 @@ class PersistentContextStorage:
 
         if len(messages) >= len(self._messages) and compare(
             messages[: len(self._messages)], self._messages
-        ):
+        ).to_dict():
             additional_messages = messages[len(self._messages) :]
             await self._queue.put(("append", additional_messages))
             return_action = "append"

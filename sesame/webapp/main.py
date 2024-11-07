@@ -12,7 +12,27 @@ from fastapi.templating import Jinja2Templates
 from loguru import logger
 from sqlalchemy import text
 
+from deepdiff import DeepDiff
+
+obj1 = {'key1': 'value1', 'key2': 'value2'}
+obj2 = {'key1': 'value1', 'key2': 'value3'}
+
+diff = DeepDiff(obj1, obj2)
+print(diff)
+
 from .api import router as api_router
+
+
+
+app = FastAPI()
+
+app.include_router(api_router)
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
 
 load_dotenv(override=True)
 
